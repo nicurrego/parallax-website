@@ -127,7 +127,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
-              <img src="/img/github.png" alt="GitHub" width={24} height={24} />
+              <img src="./public/github.png" alt="GitHub" width={24} height={24} />
             </a>
             <a
               className={styles.socialLink}
@@ -136,7 +136,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <img src="/img/in.png" alt="LinkedIn" width={24} height={24} />
+              <img src="./public/in.png" alt="LinkedIn" width={24} height={24} />
             </a>
             <a
               className={styles.socialLink}
@@ -145,14 +145,14 @@ const Contact = () => {
               rel="noopener noreferrer"
               aria-label="Instagram"
             >
-              <img src="/img/instagram.png" alt="Instagram" width={24} height={24} />
+              <img src="./public/instagram.png" alt="Instagram" width={24} height={24} />
             </a>
             <a
               className={styles.socialLink}
               href="mailto:contact@nicurrego@gmail.com"
               aria-label="Email"
             >
-              <img src="/img/email.png" alt="Email" width={24} height={24} />
+              <img src="./public/email.png" alt="Email" width={24} height={24} />
             </a>
           </div>
 
