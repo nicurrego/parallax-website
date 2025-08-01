@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       {/* <ParallaxLayers /> */}
-        <div className="container">
+        <div className={styles.container}>
           <main>
             <Header />
               {/* <Routes>
