@@ -8,6 +8,7 @@ import ProjectArticle from './components/ProjectArticle.jsx';
 import Contact from './components/Contact.jsx';
 import ParallaxLayers from './components/ParallaxLayers.jsx';
 
+
 function App() {
   return (
     <Router>
