@@ -1,6 +1,5 @@
 // src/components/Contact.jsx
 import React, { useState } from 'react';
-import '../css/header.css'; // assumes .container and form styles live here or import a dedicated css
 
 const initialState = {
   name: '',

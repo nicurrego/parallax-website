@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/header.css';
+import styles from '../css/Header.module.css';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
-    <header className="site-header">
+    <header className={styles.header}>
       <div className="left">
         <Link to="/" className="vault-link">My Mind</Link>
       </div>

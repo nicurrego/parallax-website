@@ -8,7 +8,7 @@ import Header from './components/Header.jsx';
 import Contact from './components/Contact.jsx';
 // import ParallaxLayers from './components/ParallaxLayers.jsx';
 
-import './css/global.css';
+import styles from './css/Container.module.css'
 
 function App() {
   return (
