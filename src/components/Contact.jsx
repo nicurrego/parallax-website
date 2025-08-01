@@ -1,5 +1,6 @@
 // src/components/Contact.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
+import styles from '../css/Contact.module.css';
 
 const initialState = {
   name: '',
@@ -19,7 +20,6 @@ const Contact = () => {
   const validate = () => {
     if (!form.name.trim()) return 'Name is required.';
     if (!form.email.trim()) return 'Email is required.';
-    // simple email regex
     const emailRe = /\S+@\S+\.\S+/;
     if (!emailRe.test(form.email)) return 'Email is invalid.';
     if (!form.message.trim()) return 'Message is required.';
@@ -38,18 +38,7 @@ const Contact = () => {
     setErrorMsg('');
 
     try {
-      // TODO: replace URL with your real endpoint or integrate service (e.g., Formspree, Netlify Forms, custom API)
-      // Example placeholder using fetch:
-      /*
-      const resp = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (!resp.ok) throw new Error('Network response was not ok');
-      */
-
-      // Simulate success delay
+      // placeholder for real submission
       await new Promise(r => setTimeout(r, 600));
       setStatus('success');
       setForm(initialState);
@@ -61,14 +50,15 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact-section" aria-label="Contact">
-      <div className="container">
-        <h2>Contact</h2>
-        <div className="section-box" style={{ padding: '1.5rem', marginTop: '1rem' }}>
-          <form className="contact-form" onSubmit={handleSubmit} noValidate>
-            <label>
+    <section id="contact" className={styles.contactSection} aria-label="Contact">
+      <div className={styles.container}>
+        <h2 className={styles.heading}>Contact</h2>
+        <div className={styles.sectionBox}>
+          <form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
+            <label className={styles.label}>
               Name:
               <input
+                className={styles.input}
                 type="text"
                 name="name"
                 value={form.name}
@@ -79,9 +69,10 @@ const Contact = () => {
               />
             </label>
 
-            <label>
+            <label className={styles.label}>
               Email:
               <input
+                className={styles.input}
                 type="email"
                 name="email"
                 value={form.email}
@@ -92,9 +83,10 @@ const Contact = () => {
               />
             </label>
 
-            <label>
+            <label className={styles.label}>
               Message:
               <textarea
+                className={styles.textarea}
                 name="message"
                 rows="5"
                 value={form.message}
@@ -105,51 +97,66 @@ const Contact = () => {
               />
             </label>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '0.5rem' }}>
+            <div className={styles.actions}>
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                style={{
-                  padding: '0.75rem 1.5rem',
-                  background: 'var(--gold)',
-                  border: 'none',
-                  borderRadius: '0.5rem',
-                  color: 'var(--dark)',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                }}
+                className={styles.submitButton}
               >
                 {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
+
               {status === 'success' && (
-                <span aria-live="polite" style={{ color: 'limegreen' }}>
+                <span className={`${styles.statusMessage} ${styles.success}`} aria-live="polite">
                   Message sent!
                 </span>
               )}
               {status === 'error' && errorMsg && (
-                <span aria-live="assertive" style={{ color: '#f66' }}>
+                <span className={`${styles.statusMessage} ${styles.error}`} aria-live="assertive">
                   {errorMsg}
                 </span>
               )}
             </div>
           </form>
 
-          <div className="social-links" style={{ marginTop: '2rem', display: 'flex', gap: '1.5rem' }}>
-            <a href="https://github.com/nicurrego" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <img src="/img/github.png" alt="GitHub" width={32} height={32} />
+          <div className={styles.socialLinks}>
+            <a
+              className={styles.socialLink}
+              href="https://github.com/nicurrego"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <img src="/img/github.png" alt="GitHub" width={24} height={24} />
             </a>
-            <a href="https://linkedin.com/in/nicurrego" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <img src="/img/in.png" alt="LinkedIn" width={32} height={32} />
+            <a
+              className={styles.socialLink}
+              href="https://linkedin.com/in/nicurrego"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <img src="/img/in.png" alt="LinkedIn" width={24} height={24} />
             </a>
-            <a href="https://instagram.com/nicurrego" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src="/img/instagram.png" alt="Instagram" width={32} height={32} />
+            <a
+              className={styles.socialLink}
+              href="https://instagram.com/nicurrego"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <img src="/img/instagram.png" alt="Instagram" width={24} height={24} />
             </a>
-            <a href="mailto:contact@nicurrego@gmail.com" aria-label="Email">
-              <img src="/img/email.png" alt="Email" width={32} height={32} />
+            <a
+              className={styles.socialLink}
+              href="mailto:contact@nicurrego@gmail.com"
+              aria-label="Email"
+            >
+              <img src="/img/email.png" alt="Email" width={24} height={24} />
             </a>
           </div>
 
-          <div className="footer-credit" style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <div className={styles.footerCredit}>
             <p>&copy; 2025 Nicolas Urrego. All rights reserved.</p>
           </div>
         </div>
