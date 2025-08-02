@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import ParallaxLayers from './components/ParallaxLayers.jsx';
 
 import Header from './components/Header.jsx';
 import Profile from './pages/Profile.jsx';
@@ -10,19 +11,18 @@ import styles from './css/Container.module.css'
 function App() {
   return (
     <Router>
-      {/* <ParallaxLayers /> */}
-        <div className={styles.container}>
-          <main>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Profile />} />
-              <Route path="/projects" element={<Projects />} />
-            </Routes>
-            <Contact />
-          </main>
-        </div>
+      <div className={styles.container}>
+        <ParallaxLayers />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Profile />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+        <Contact />
+      </div>
     </Router>
   );
 }
+
 
 export default App;

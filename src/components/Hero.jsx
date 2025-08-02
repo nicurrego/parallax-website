@@ -22,7 +22,7 @@ const Hero = () => (
 
     <div className={styles.heroImage}>
       <img
-        src="../../public/my_photo_mobile.png"
+        src="../../my_photo_mobile.png"
         alt="Portrait of Nicolas Urrego"
         loading="lazy"
         width={300}
