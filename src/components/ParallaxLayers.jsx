@@ -83,9 +83,9 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
           ...soraSpring,
           position: 'absolute',
           top: 0,
-          left: 0,
-          width: '100%',
-          height: '100vh',
+          left: -40,
+          width: '110%',
+          height: '110vh',
           willChange: 'transform',
         }}
       >
@@ -103,8 +103,8 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
         style={{
           ...taironaSpring,
           position: 'absolute',
-          top: '70vh',
-          left: 140,
+          top: '40vh',
+          left: 100,
           width: '100%',
           height: '145vh',
           willChange: 'transform',
@@ -118,6 +118,7 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
             height: '100%',
             objectFit: 'contain',
             objectPosition: 'top center',
+            opacity: 0.6,
           }}
           loading="lazy"
           decoding="async"
