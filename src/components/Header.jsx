@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import styles from '../css/Header.module.css';
 
 const LANGUAGES = [
-  { code: 'es', title: 'Español', flag: '/img/colombia.png' },
-  { code: 'ja', title: '日本語', flag: '/img/japan.png' },
-  { code: 'en', title: 'English', flag: '/img/united-states.png' },
-  { code: 'pt', title: 'Português', flag: '/img/brazil.png' },
+  { code: 'es', title: 'Español', flag: '/colombia.png' },
+  { code: 'ja', title: '日本語', flag: '/japan.png' },
+  { code: 'en', title: 'English', flag: '/united-states.png' },
+  { code: 'pt', title: 'Português', flag: '/brazil.png' },
 ];
 
 // simple helper to read ?lang= from URL
