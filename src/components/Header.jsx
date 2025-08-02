@@ -1,5 +1,6 @@
+// src/components/Header.jsx
 import { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import styles from '../css/Header.module.css';
 
 const LANGUAGES = [
@@ -9,7 +10,6 @@ const LANGUAGES = [
   { code: 'pt', title: 'Português', flag: '/brazil.png' },
 ];
 
-// simple helper to read ?lang= from URL
 const getQueryLang = () => {
   try {
     const params = new URLSearchParams(window.location.search);
@@ -24,8 +24,9 @@ const Header = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState(getQueryLang());
   const langRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // close language dropdown when clicking outside
   useEffect(() => {
     const onDoc = (e) => {
       if (langRef.current && !langRef.current.contains(e.target)) {
@@ -39,7 +40,6 @@ const Header = () => {
   const selectLang = (code) => {
     setCurrentLang(code);
     setLangOpen(false);
-    // update URL param without reload
     const u = new URL(window.location.href);
     u.searchParams.set('lang', code);
     window.history.replaceState({}, '', u);
@@ -47,13 +47,31 @@ const Header = () => {
 
   const current = LANGUAGES.find((l) => l.code === currentLang) || LANGUAGES[2];
 
+  const handleInPageNav = (e, targetId) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      navigate('/', { state: { scrollTo: targetId } });
+    }
+    setOpenNav(false);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <NavLink to="/" className={styles.vaultLink}>
+          <a
+            href="https://nicurrego.github.io/my_mind/"
+            className={styles.vaultLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             My Mind
-          </NavLink>
+          </a>
         </div>
 
         <nav className={styles.navDesktop}>
@@ -66,14 +84,16 @@ const Header = () => {
           >
             Home
           </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-            }
+
+          <button
+            className={styles.navLink}
+            onClick={(e) => handleInPageNav(e, 'about')}
+            aria-label="About"
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
             About
-          </NavLink>
+          </button>
+
           <NavLink
             to="/projects"
             className={({ isActive }) =>
@@ -82,14 +102,15 @@ const Header = () => {
           >
             Projects
           </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-            }
+
+          <button
+            className={styles.navLink}
+            onClick={(e) => handleInPageNav(e, 'contact')}
+            aria-label="Contact"
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
             Contact
-          </NavLink>
+          </button>
 
           <div
             className={styles.langSwitcher}
@@ -105,11 +126,7 @@ const Header = () => {
               onClick={() => setLangOpen((o) => !o)}
               type="button"
             >
-              <img
-                src={current.flag}
-                alt={current.title}
-                className={styles.flagIcon}
-              />
+              <img src={current.flag} alt={current.title} className={styles.flagIcon} />
             </button>
 
             {langOpen && (
@@ -122,12 +139,9 @@ const Header = () => {
                       className={styles.langItem}
                       title={lang.title}
                       type="button"
+                      style={{ background: 'none', border: 'none', cursor: 'pointer' }}
                     >
-                      <img
-                        src={lang.flag}
-                        alt={lang.title}
-                        className={styles.flagIcon}
-                      />
+                      <img src={lang.flag} alt={lang.title} className={styles.flagIcon} />
                     </button>
                   </li>
                 ))}
@@ -157,15 +171,15 @@ const Header = () => {
             >
               Home
             </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? `${styles.mobileLink} ${styles.active}` : styles.mobileLink
-              }
-              onClick={() => setOpenNav(false)}
+            <button
+              className={styles.mobileLink}
+              onClick={(e) => {
+                handleInPageNav(e, 'about');
+              }}
+              style={{ background: 'none', border: 'none', textAlign: 'left', padding: 0 }}
             >
               About
-            </NavLink>
+            </button>
             <NavLink
               to="/projects"
               className={({ isActive }) =>
@@ -175,15 +189,15 @@ const Header = () => {
             >
               Projects
             </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive ? `${styles.mobileLink} ${styles.active}` : styles.mobileLink
-              }
-              onClick={() => setOpenNav(false)}
+            <button
+              className={styles.mobileLink}
+              onClick={(e) => {
+                handleInPageNav(e, 'contact');
+              }}
+              style={{ background: 'none', border: 'none', textAlign: 'left', padding: 0 }}
             >
               Contact
-            </NavLink>
+     button</button>
           </div>
         )}
       </div>
