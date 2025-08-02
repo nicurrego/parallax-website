@@ -59,7 +59,7 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
 
   // Preload images once
   useEffect(() => {
-    const imgs = ['/img/sora.png', '/img/tairona.png'];
+    const imgs = ['/sora.png', '/tairona.png'];
     imgs.forEach((src) => {
       const i = new Image();
       i.src = src;
@@ -90,7 +90,7 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
         }}
       >
         <img
-          src="/img/sora.png"
+          src="/sora.png"
           alt="Sora background"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           loading="lazy"
@@ -111,7 +111,7 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
         }}
       >
         <img
-          src="/img/tairona.png"
+          src="/tairona.png"
           alt="Tairona background"
           style={{
             width: '100%',
