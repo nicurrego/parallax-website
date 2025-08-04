@@ -92,7 +92,7 @@ const ParallaxLayers = ({ disableOnMobile = true }) => {
         <img
           src="/sora.png"
           alt="Sora background"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '110%', objectFit: 'cover' }}
           loading="lazy"
           decoding="async"
         />
