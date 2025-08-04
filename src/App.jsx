@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ParallaxLayers from './components/ParallaxLayers.jsx';
+import FooterSocial from './components/FooterSocial.jsx';
 
 import Header from './components/Header.jsx';
 import Profile from './pages/Profile.jsx';
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Profile />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>
+        <FooterSocial />
       </div>
     </Router>
   );

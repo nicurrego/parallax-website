@@ -1,7 +1,6 @@
 // import ParallaxLayers from '../components/ParallaxLayers.jsx';
 import Hero from '../components/Hero.jsx';
 import About from '../components/About.jsx';
-import ProjectsTeaser from '../components/ProjectsTeaser.jsx';
 import Contact from '../components/Contact.jsx';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -28,8 +27,6 @@ const Profile = () => {
     <>
       <Hero />
       <About />
-      {/* <ProjectsTeaser /> */}
-      <Contact />
     </>
   );
 };

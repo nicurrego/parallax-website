@@ -1,0 +1,43 @@
+/* src/css/FooterSocial.module.css */
+.footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background: rgba(10, 10, 10, 0.85);
+  color: var(--silver);
+}
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.links {
+  display: flex;
+  gap: 1rem;
+}
+.links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.links a:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+}
+.links img {
+  width: 24px;
+  height: auto;
+  display: block;
+}
+.credit {
+  font-size: 0.8rem;
+  color: var(--silver);
+}
