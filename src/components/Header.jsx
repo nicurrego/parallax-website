@@ -176,7 +176,6 @@ const Header = () => {
               onClick={(e) => {
                 handleInPageNav(e, 'about');
               }}
-              style={{ background: 'none', border: 'none', textAlign: 'left', padding: 0 }}
             >
               About
             </button>
@@ -194,10 +193,9 @@ const Header = () => {
               onClick={(e) => {
                 handleInPageNav(e, 'contact');
               }}
-              style={{ background: 'none', border: 'none', textAlign: 'left', padding: 0 }}
             >
               Contact
-     button</button>
+            </button>
           </div>
         )}
       </div>

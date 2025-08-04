@@ -42,8 +42,7 @@
   font-family: var(--font-c);
   color: var(--emerald);
   font-weight: bold;
-  font-size: 1.1rem;
-  text-decoration: none;
+  font-size: 1.2rem;
   transition: color var(--transition), text-shadow var(--transition);
 }
 .vaultLink:hover {
@@ -70,6 +69,12 @@
 .navLink:hover {
   color: var(--emerald);
   text-shadow: 0 0 10px var(--silver);
+}
+button.navLink {
+  display: flex;
+  padding-top: 4px;
+  font-size: 15.5px;
+  font-weight: 550;
 }
 
 /* Language switcher inside desktop nav */
