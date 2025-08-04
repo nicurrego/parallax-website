@@ -1,13 +1,12 @@
-import React from 'react';
 import projects from '../data/projects.js';
-import styles from '../css/Profile.module.css';
-import '../css/ProjectsOverrides.css';
+import profileStyles from '../css/Profile.module.css';
+import projectStyles from '../css/Projects.module.css';
 
 const Projects = () => {
   if (!projects || projects.length === 0) {
     return (
-      <section className={styles.projectsSection}>
-        <div className={styles.inner}>
+      <section className={profileStyles.projectsSection}>
+        <div className={profileStyles.inner}>
           <h2>Projects</h2>
           <p>No projects available yet. Check back soon.</p>
         </div>
@@ -16,57 +15,58 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className={styles.projectsSection}>
-      <div className={styles.inner}>
+    <section id="projects" className={profileStyles.projectsSection}>
+      <div className={profileStyles.inner}>
         <h2>Projects</h2>
-        <div className={styles.previewGrid}>
+        <div className={projectStyles.projectGrid}>
           {projects.map((p) => (
-            <div key={p.slug} className={styles.card}>
+            <div
+              key={p.slug}
+              className={`${profileStyles.card} ${projectStyles.projectCard}`}
+            >
               {p.image && (
-                <div className="project-image-wrapper">
+                <div className={projectStyles.projectImageWrapper}>
                   <img
                     src={p.image}
                     alt={`${p.title} screenshot`}
-                    className="project-image"
+                    className={projectStyles.projectImage}
                     loading="lazy"
                     decoding="async"
                   />
                 </div>
               )}
 
-              <div className="project-meta">
-                <div className="title-row">
-                  <div>
-                    <h3 style={{ margin: 0 }}>{p.title}</h3>
-                    {p.date && (
-                      <div className="project-date">{p.date}</div>
-                    )}
-                  </div>
-                  <div className="badges">
-                    {p.demo && (
-                      <a
-                        href={p.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="badge live-badge"
-                      >
-                        Live
-                      </a>
-                    )}
-                    {p.repo && (
-                      <a
-                        href={p.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="badge github-badge"
-                      >
-                        GitHub
-                      </a>
-                    )}
-                  </div>
+              <div className={projectStyles.titleRow} style={{ marginTop: p.image ? '1rem' : 0 }}>
+                <div>
+                  <h3 style={{ margin: 0 }}>{p.title}</h3>
+                  {p.date && (
+                    <div className={projectStyles.projectDate}>{p.date}</div>
+                  )}
                 </div>
-                <p style={{ margin: 0 }}>{p.summary}</p>
+                <div className={projectStyles.badges}>
+                  {p.demo && (
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${projectStyles.badge} ${projectStyles.liveBadge}`}
+                    >
+                      Live
+                    </a>
+                  )}
+                  {p.repo && (
+                    <a
+                      href={p.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${projectStyles.badge} ${projectStyles.githubBadge}`}
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
               </div>
+              <p style={{ margin: 0 }}>{p.summary}</p>
             </div>
           ))}
         </div>

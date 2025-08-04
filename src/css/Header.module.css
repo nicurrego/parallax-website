@@ -183,6 +183,15 @@ button.navLink {
   font-weight: 600;
   transition: color var(--transition), text-shadow var(--transition);
 }
+button.mobileLink {
+  display: flex;
+  font-size: 15.5px;
+  font-weight: 550;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
 .mobileLink:hover {
   color: var(--emerald);
   text-shadow: 0 0 10px var(--silver);
