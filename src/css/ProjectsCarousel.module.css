@@ -5,15 +5,37 @@
   --dark: #0a0a0a;
 }
 
+/* Projects Section - matching About section styling */
+.projectsSection {
+  padding: 2rem 1rem 4rem;
+  margin-top: 2rem;
+  color: var(--silver);
+}
+
+.projectsSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--gold);
+  padding-left: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 12px;
+  text-decoration-thickness: 3px;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .carousel {
   position: relative;
   width: 100%;
-  height: 400px; /* Fixed height to prevent layout issues */
+  height: 500px; /* Increased height to prevent image cutoff */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin-top: 1rem;
 }
 
 .slide {
@@ -21,9 +43,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9); /* Center the slide and scale */
-  width: 80%;               /* 80% of container */
-  max-width: 800px;
-  padding: 1rem;
+  width: 85%;               /* Slightly wider for better fit */
+  max-width: 700px;         /* Reduced max-width to ensure better fit */
+  max-height: 85%;          /* Ensure slide doesn't exceed container height */
+  padding: 1.5rem;
   box-sizing: border-box;
   background: #222;
   border: 2px solid var(--silver);
@@ -32,6 +55,10 @@
   transition: opacity 0.6s ease, transform 0.6s ease;
   cursor: pointer;
   text-align: center;
+  overflow: hidden;         /* Prevent content from overflowing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .active {
@@ -42,10 +69,11 @@
 
 .image {
   width: 100%;
-  height: auto;
+  max-height: 250px;        /* Limit image height to prevent overflow */
   border-radius: 0.75rem;
   object-fit: cover;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;           /* Prevent image from shrinking too much */
 }
 
 .title {
@@ -90,14 +118,22 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .projectsSection h2 {
+    font-size: 1.8rem;
+  }
+
   .carousel {
-    height: 350px; /* Slightly smaller on tablets */
-    margin: 1.5rem 0;
+    height: 420px; /* Slightly smaller on tablets */
+    margin-top: 1rem;
   }
 
   .slide {
     width: 90%; /* Wider on smaller screens */
-    padding: 0.75rem;
+    padding: 1rem;
+  }
+
+  .image {
+    max-height: 200px; /* Smaller images on tablets */
   }
 
   .prev,
@@ -108,14 +144,28 @@
 }
 
 @media (max-width: 480px) {
+  .projectsSection {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .projectsSection h2 {
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    text-decoration: none;
+  }
+
   .carousel {
-    height: 300px; /* Even smaller on mobile */
-    margin: 1rem 0;
+    height: 350px; /* Increased for mobile to fit content better */
+    margin-top: 0.5rem;
   }
 
   .slide {
     width: 95%; /* Almost full width on mobile */
-    padding: 0.5rem;
+    padding: 1rem;
+  }
+
+  .image {
+    max-height: 150px; /* Smaller images on mobile */
   }
 
   .title {

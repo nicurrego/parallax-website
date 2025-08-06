@@ -43,60 +43,65 @@ const ProjectsCarousel = ({ interval = 4000 }) => {
   };
 
   return (
-    <div className={styles.carousel} role="region" aria-label="Projects carousel">
-      {projects.map((p, i) => (
-        <div
-          key={p.slug}
-          className={`${styles.slide} ${i === current ? styles.active : ''}`}
-          onClick={() => navigate('/projects')}
-          role="button"
-          tabIndex={i === current ? 0 : -1}
-          aria-label={`View project: ${p.title}`}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              navigate('/projects');
-            }
-          }}
-        >
-          {p.image && p.image.trim() !== '' && (
-            <img
-              src={p.image}
-              alt={`${p.title} screenshot`}
-              className={styles.image}
-              loading="lazy"
-              decoding="async"
-              onError={(e) => {
-                e.target.style.display = 'none';
+    <section className={styles.projectsSection}>
+      <div className={styles.inner}>
+        <h2>Check out some of my projects</h2>
+        <div className={styles.carousel} role="region" aria-label="Projects carousel">
+          {projects.map((p, i) => (
+            <div
+              key={p.slug}
+              className={`${styles.slide} ${i === current ? styles.active : ''}`}
+              onClick={() => navigate('/projects')}
+              role="button"
+              tabIndex={i === current ? 0 : -1}
+              aria-label={`View project: ${p.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate('/projects');
+                }
               }}
-            />
-          )}
-          <h3 className={styles.title}>{p.title}</h3>
-          <p className={styles.summary}>{p.summary}</p>
-        </div>
-      ))}
+            >
+              {p.image && p.image.trim() !== '' && (
+                <img
+                  src={p.image}
+                  alt={`${p.title} screenshot`}
+                  className={styles.image}
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              )}
+              <h3 className={styles.title}>{p.title}</h3>
+              <p className={styles.summary}>{p.summary}</p>
+            </div>
+          ))}
 
-      {length > 1 && (
-        <>
-          <button
-            className={styles.prev}
-            onClick={prev}
-            aria-label="Previous project"
-            type="button"
-          >
-            ‹
-          </button>
-          <button
-            className={styles.next}
-            onClick={next}
-            aria-label="Next project"
-            type="button"
-          >
-            ›
-          </button>
-        </>
-      )}
-    </div>
+          {length > 1 && (
+            <>
+              <button
+                className={styles.prev}
+                onClick={prev}
+                aria-label="Previous project"
+                type="button"
+              >
+                ‹
+              </button>
+              <button
+                className={styles.next}
+                onClick={next}
+                aria-label="Next project"
+                type="button"
+              >
+                ›
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 
