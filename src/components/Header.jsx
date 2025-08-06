@@ -112,7 +112,7 @@ const Header = () => {
             Contact
           </button> */}
 
-          <div
+          {/* <div
             className={styles.langSwitcher}
             ref={langRef}
             onMouseEnter={() => setLangOpen(true)}
@@ -147,7 +147,7 @@ const Header = () => {
                 ))}
               </ul>
             )}
-          </div>
+          </div> */}
         </nav>
 
         <button
