@@ -1,7 +1,7 @@
 import styles from '../css/FooterSocial.module.css';
 
 const FooterSocial = () => (
-  <footer className={styles.footer}>
+  <footer className={styles.footer} id="site-contact">
     <div className={styles.inner}>
       <div className={styles.links}>
         <a

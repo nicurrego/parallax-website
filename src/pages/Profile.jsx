@@ -1,7 +1,7 @@
 // import ParallaxLayers from '../components/ParallaxLayers.jsx';
 import Hero from '../components/Hero.jsx';
 import About from '../components/About.jsx';
-import Contact from '../components/Contact.jsx';
+import ProjectsCarousel from '../components/ProjectsCarousel.jsx';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -27,6 +27,7 @@ const Profile = () => {
     <>
       <Hero />
       <About />
+      <ProjectsCarousel interval={3000}/>
     </>
   );
 };
