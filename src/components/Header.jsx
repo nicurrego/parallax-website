@@ -103,14 +103,14 @@ const Header = () => {
             Projects
           </NavLink>
 
-          <button
+          {/* <button
             className={styles.navLink}
             onClick={(e) => handleInPageNav(e, 'contact')}
             aria-label="Contact"
             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
             Contact
-          </button>
+          </button> */}
 
           <div
             className={styles.langSwitcher}
@@ -188,14 +188,14 @@ const Header = () => {
             >
               Projects
             </NavLink>
-            <button
+            {/* <button
               className={styles.mobileLink}
               onClick={(e) => {
                 handleInPageNav(e, 'contact');
               }}
             >
               Contact
-            </button>
+            </button> */}
           </div>
         )}
       </div>
