@@ -1,4 +1,5 @@
 {
+  "homepage": "https://nicurrego.github.io/portfolio",
   "name": "parallax-website",
   "private": true,
   "version": "0.0.0",
@@ -7,11 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "hash-router": "^0.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
